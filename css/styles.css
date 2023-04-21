@@ -180,13 +180,13 @@ img {
   background-color: var(--cornflower);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
-  transform: translate(
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
-  );
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn:hover,
@@ -275,12 +275,16 @@ img {
   color: var(--ocean);
 }
 
-.header-link.current::after {
-  background-color: var(--ocean);
+.header-link.current,
+.header-link.current-port {
+  color: var(--ocean);
 }
+
+.header-link.current::after,
 .header-link.current-port::after {
   background-color: var(--ocean);
 }
+
 .address {
   font-style: normal;
   margin-left: auto;
@@ -358,7 +362,6 @@ img {
 }
 .work {
   display: flex;
-
   justify-content: center;
   gap: 24px;
 }
@@ -502,7 +505,8 @@ img {
   border-radius: 4px;
   transition: backgraund-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-cards {
@@ -570,8 +574,10 @@ img {
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-item-cards:hover .overlay,
-.portfolio-item-cards:focus .overlay {
+.portfolio-item-cards:hover .overlay {
+  transform: translateY(0);
+}
+.portfolio-link:focus .overlay {
   transform: translateY(0);
 }
 
@@ -655,9 +661,9 @@ img {
 .footer-tumb {
   display: flex;
   align-items: baseline;
-  gap: 120px;
 }
 .section-one {
   max-width: 264px;
   height: 112px;
+  margin-right: 120px;
 }
